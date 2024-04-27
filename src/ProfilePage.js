@@ -300,6 +300,479 @@
 // };
 
 // export default ProfilePage;
+// //ProfilePage.js
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import { useParams } from "react-router-dom";
+
+// const ProfilePage = () => {
+//   const { profileName } = useParams();
+//   const [profile, setProfile] = useState(null);
+//   const [newAvatar, setNewAvatar] = useState(null);
+//   const [newBanner, setNewBanner] = useState(null);
+//   const [error, setError] = useState(null);
+//   const [success, setSuccess] = useState(false);
+
+//   useEffect(() => {
+//     const fetchProfileData = async () => {
+//       try {
+//         const token = localStorage.getItem("accessToken");
+//         const apiKey = localStorage.getItem("apiKey"); // Get API key from local storage
+//         if (!token || !apiKey || !profileName) {
+//           throw new Error("Access token, API key, or profile name not found");
+//         }
+
+//         const response = await axios.get(
+//           `https://v2.api.noroff.dev/social/profiles/${profileName}`,
+//           {
+//             headers: {
+//               Authorization: `Bearer ${token}`,
+//               "X-Noroff-API-Key": apiKey, // Add API key to request headers
+//             },
+//           }
+//         );
+//         setProfile(response.data.data);
+//       } catch (error) {
+//         console.error("Error fetching profile data:", error);
+//         setError("Error fetching profile data");
+//       }
+//     };
+
+//     fetchProfileData();
+//   }, [profileName]);
+
+//   const handleAvatarChange = (e) => {
+//     setNewAvatar(e.target.files[0]);
+//   };
+
+//   const handleBannerChange = (e) => {
+//     setNewBanner(e.target.files[0]);
+//   };
+
+//   const updateProfile = async () => {
+//     const formData = new FormData();
+//     if (newAvatar) {
+//       formData.append("avatar", newAvatar);
+//     }
+//     if (newBanner) {
+//       formData.append("banner", newBanner);
+//     }
+
+//     try {
+//       const token = localStorage.getItem("accessToken");
+//       const apiKey = localStorage.getItem("apiKey"); // Get API key from local storage
+//       if (!token || !apiKey || !profileName) {
+//         throw new Error("Access token, API key, or profile name not found");
+//       }
+
+//       const response = await axios.put(
+//         `https://v2.api.noroff.dev/social/profiles/${profileName}`,
+//         formData,
+//         {
+//           headers: {
+//             "Content-Type": "multipart/form-data",
+//             Authorization: `Bearer ${token}`,
+//             "X-Noroff-API-Key": apiKey, // Add API key to request headers
+//           },
+//         }
+//       );
+//       setProfile(response.data.data);
+//       setSuccess(true);
+//     } catch (error) {
+//       console.error("Error updating profile:", error);
+//       setError("Error updating profile");
+//     }
+//   };
+
+//   if (!profile) {
+//     return <div>Loading...</div>;
+//   }
+
+//   if (!profileName) {
+//     return <div>Error: Profile name not provided in URL</div>;
+//   }
+
+//   return (
+//     <div>
+//       <h2>Profile</h2>
+//       <div>
+//         <h3>Name: {profile.name}</h3>
+//         <img src={profile.avatar.url} alt={profile.avatar.alt} />
+//         <input type="file" accept="image/*" onChange={handleAvatarChange} />
+//         <img src={profile.banner.url} alt={profile.banner.alt} />
+//         <input type="file" accept="image/*" onChange={handleBannerChange} />
+//         <button onClick={updateProfile}>Update Profile</button>
+//       </div>
+//       {error && <p style={{ color: "red" }}>{error}</p>}
+//       {success && (
+//         <p style={{ color: "green" }}>Profile updated successfully!</p>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default ProfilePage;
+
+// // ProfilePage.js
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import { useParams } from "react-router-dom";
+
+// const ProfilePage = () => {
+//   const { profileName } = useParams();
+//   const [profile, setProfile] = useState(null);
+//   const [newAvatar, setNewAvatar] = useState(null);
+//   const [newBanner, setNewBanner] = useState(null);
+//   const [error, setError] = useState(null);
+//   const [success, setSuccess] = useState(false);
+
+//   useEffect(() => {
+//     const fetchProfileData = async () => {
+//       try {
+//         const token = localStorage.getItem("accessToken");
+//         const apiKey = localStorage.getItem("apiKey");
+//         if (!token || !apiKey || !profileName) {
+//           throw new Error("Access token, API key, or profile name not found");
+//         }
+
+//         const response = await axios.get(
+//           `https://v2.api.noroff.dev/social/profiles/${profileName}`,
+//           {
+//             headers: {
+//               Authorization: `Bearer ${token}`,
+//               "X-Noroff-API-Key": apiKey,
+//             },
+//           }
+//         );
+//         setProfile(response.data.data);
+//       } catch (error) {
+//         console.error("Error fetching profile data:", error);
+//         setError("Error fetching profile data");
+//       }
+//     };
+
+//     fetchProfileData();
+//   }, [profileName]);
+
+//   const handleAvatarChange = (e) => {
+//     setNewAvatar(e.target.files[0]);
+//   };
+
+//   const handleBannerChange = (e) => {
+//     setNewBanner(e.target.files[0]);
+//   };
+
+//   const updateProfile = async () => {
+//     const formData = new FormData();
+//     if (newAvatar) {
+//       formData.append("avatar", newAvatar);
+//     }
+//     if (newBanner) {
+//       formData.append("banner", newBanner);
+//     }
+
+//     try {
+//       const token = localStorage.getItem("accessToken");
+//       const apiKey = localStorage.getItem("apiKey");
+//       if (!token || !apiKey || !profileName) {
+//         throw new Error("Access token, API key, or profile name not found");
+//       }
+
+//       const response = await axios.put(
+//         `https://v2.api.noroff.dev/social/profiles/${profileName}`,
+//         formData,
+//         {
+//           headers: {
+//             "Content-Type": "multipart/form-data",
+//             Authorization: `Bearer ${token}`,
+//             "X-Noroff-API-Key": apiKey,
+//           },
+//         }
+//       );
+//       setProfile(response.data.data);
+//       setSuccess(true);
+//     } catch (error) {
+//       console.error("Error updating profile:", error);
+//       setError("Error updating profile");
+//     }
+//   };
+
+//   if (!profile) {
+//     return <div>Loading...</div>;
+//   }
+
+//   if (!profileName) {
+//     return <div>Error: Profile name not provided in URL</div>;
+//   }
+
+//   return (
+//     <div>
+//       <h2>Profile</h2>
+//       <div>
+//         <h3>Name: {profile.name}</h3>
+//         <img src={profile.avatar.url} alt={profile.avatar.alt} />
+//         <input type="file" accept="image/*" onChange={handleAvatarChange} />
+//         <img src={profile.banner.url} alt={profile.banner.alt} />
+//         <input type="file" accept="image/*" onChange={handleBannerChange} />
+//         <button onClick={updateProfile}>Update Profile</button>
+//       </div>
+//       {error && <p style={{ color: "red" }}>{error}</p>}
+//       {success && (
+//         <p style={{ color: "green" }}>Profile updated successfully!</p>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default ProfilePage;
+
+// // ProfilePage.js
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import { useParams } from "react-router-dom";
+
+// const ProfilePage = () => {
+//   const { profileName } = useParams();
+//   const [profile, setProfile] = useState(null);
+//   const [newAvatar, setNewAvatar] = useState(null);
+//   const [newBanner, setNewBanner] = useState(null);
+//   const [error, setError] = useState(null);
+//   const [success, setSuccess] = useState(false);
+
+//   useEffect(() => {
+//     const fetchProfileData = async () => {
+//       try {
+//         if (!profileName) {
+//           const storedProfileName = localStorage.getItem("profileName");
+//           if (!storedProfileName) {
+//             throw new Error("Profile name not provided");
+//           }
+//           setProfileName(storedProfileName);
+//         }
+//         const token = localStorage.getItem("accessToken");
+//         const apiKey = localStorage.getItem("apiKey");
+//         if (!token || !apiKey) {
+//           throw new Error("Access token or API key not found");
+//         }
+
+//         const response = await axios.get(
+//           `https://v2.api.noroff.dev/social/profiles/${profileName}`,
+//           {
+//             headers: {
+//               Authorization: `Bearer ${token}`,
+//               "X-Noroff-API-Key": apiKey,
+//             },
+//           }
+//         );
+//         setProfile(response.data.data);
+//       } catch (error) {
+//         console.error("Error fetching profile data:", error);
+//         setError("Error fetching profile data");
+//       }
+//     };
+
+//     fetchProfileData();
+//   }, [profileName]);
+
+//   const handleAvatarChange = (e) => {
+//     setNewAvatar(e.target.files[0]);
+//   };
+
+//   const handleBannerChange = (e) => {
+//     setNewBanner(e.target.files[0]);
+//   };
+
+//   const updateProfile = async () => {
+//     const formData = new FormData();
+//     if (newAvatar) {
+//       formData.append("avatar", newAvatar);
+//     }
+//     if (newBanner) {
+//       formData.append("banner", newBanner);
+//     }
+
+//     try {
+//       if (!profileName) {
+//         throw new Error("Profile name not provided");
+//       }
+//       const token = localStorage.getItem("accessToken");
+//       const apiKey = localStorage.getItem("apiKey");
+//       if (!token || !apiKey) {
+//         throw new Error("Access token or API key not found");
+//       }
+
+//       const response = await axios.put(
+//         `https://v2.api.noroff.dev/social/profiles/${profileName}`,
+//         formData,
+//         {
+//           headers: {
+//             "Content-Type": "multipart/form-data",
+//             Authorization: `Bearer ${token}`,
+//             "X-Noroff-API-Key": apiKey,
+//           },
+//         }
+//       );
+//       setProfile(response.data.data);
+//       setSuccess(true);
+//     } catch (error) {
+//       console.error("Error updating profile:", error);
+//       setError("Error updating profile");
+//     }
+//   };
+
+//   if (!profile) {
+//     return <div>Loading...</div>;
+//   }
+
+//   if (!profileName) {
+//     return <div>Error: Profile name not provided in URL</div>;
+//   }
+
+//   return (
+//     <div>
+//       <h2>Profile</h2>
+//       <div>
+//         <h3>Name: {profile.name}</h3>
+//         <img src={profile.avatar.url} alt={profile.avatar.alt} />
+//         <input type="file" accept="image/*" onChange={handleAvatarChange} />
+//         <img src={profile.banner.url} alt={profile.banner.alt} />
+//         <input type="file" accept="image/*" onChange={handleBannerChange} />
+//         <button onClick={updateProfile}>Update Profile</button>
+//       </div>
+//       {error && <p style={{ color: "red" }}>{error}</p>}
+//       {success && (
+//         <p style={{ color: "green" }}>Profile updated successfully!</p>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default ProfilePage;
+
+// // ProfilePage.js
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import { useParams } from "react-router-dom";
+
+// const ProfilePage = () => {
+//   const { profileName } = useParams();
+//   const [profile, setProfile] = useState(null);
+//   const [newAvatar, setNewAvatar] = useState(null);
+//   const [newBanner, setNewBanner] = useState(null);
+//   const [error, setError] = useState(null);
+//   const [success, setSuccess] = useState(false);
+
+//   useEffect(() => {
+//     const fetchProfileData = async () => {
+//       try {
+//         if (!profileName) {
+//           const storedProfileName = localStorage.getItem("profileName");
+//           if (!storedProfileName) {
+//             throw new Error("Profile name not provided");
+//           }
+//           setProfile(storedProfileName); // Corrected from setProfileName
+//         }
+//         const token = localStorage.getItem("accessToken");
+//         const apiKey = localStorage.getItem("apiKey");
+//         if (!token || !apiKey) {
+//           throw new Error("Access token or API key not found");
+//         }
+
+//         const response = await axios.get(
+//           `https://v2.api.noroff.dev/social/profiles/${profileName}`,
+//           {
+//             headers: {
+//               Authorization: `Bearer ${token}`,
+//               "X-Noroff-API-Key": apiKey,
+//             },
+//           }
+//         );
+//         setProfile(response.data.data);
+//       } catch (error) {
+//         console.error("Error fetching profile data:", error);
+//         setError("Error fetching profile data");
+//       }
+//     };
+
+//     fetchProfileData();
+//   }, [profileName]);
+
+//   const handleAvatarChange = (e) => {
+//     setNewAvatar(e.target.files[0]);
+//   };
+
+//   const handleBannerChange = (e) => {
+//     setNewBanner(e.target.files[0]);
+//   };
+
+//   const updateProfile = async () => {
+//     const formData = new FormData();
+//     if (newAvatar) {
+//       formData.append("avatar", newAvatar);
+//     }
+//     if (newBanner) {
+//       formData.append("banner", newBanner);
+//     }
+
+//     try {
+//       if (!profileName) {
+//         throw new Error("Profile name not provided");
+//       }
+//       const token = localStorage.getItem("accessToken");
+//       const apiKey = localStorage.getItem("apiKey");
+//       if (!token || !apiKey) {
+//         throw new Error("Access token or API key not found");
+//       }
+
+//       const response = await axios.put(
+//         `https://v2.api.noroff.dev/social/profiles/${profileName}`,
+//         formData,
+//         {
+//           headers: {
+//             "Content-Type": "multipart/form-data",
+//             Authorization: `Bearer ${token}`,
+//             "X-Noroff-API-Key": apiKey,
+//           },
+//         }
+//       );
+//       setProfile(response.data.data);
+//       setSuccess(true);
+//     } catch (error) {
+//       console.error("Error updating profile:", error);
+//       setError("Error updating profile");
+//     }
+//   };
+
+//   if (!profile) {
+//     return <div>Loading...</div>;
+//   }
+
+//   if (!profileName) {
+//     return <div>Error: Profile name not provided in URL</div>;
+//   }
+
+//   return (
+//     <div>
+//       <h2>Profile</h2>
+//       <div>
+//         <h3>Name: {profile.name}</h3>
+//         <img src={profile.avatar.url} alt={profile.avatar.alt} />
+//         <input type="file" accept="image/*" onChange={handleAvatarChange} />
+//         <img src={profile.banner.url} alt={profile.banner.alt} />
+//         <input type="file" accept="image/*" onChange={handleBannerChange} />
+//         <button onClick={updateProfile}>Update Profile</button>
+//       </div>
+//       {error && <p style={{ color: "red" }}>{error}</p>}
+//       {success && (
+//         <p style={{ color: "green" }}>Profile updated successfully!</p>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default ProfilePage;
+
+// ProfilePage.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -313,12 +786,18 @@ const ProfilePage = () => {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
+    console.log("Profile Name:", profileName); // Log profileName
+
     const fetchProfileData = async () => {
       try {
+        if (!profileName) {
+          throw new Error("Profile name not provided");
+        }
+
         const token = localStorage.getItem("accessToken");
-        const apiKey = localStorage.getItem("apiKey"); // Get API key from local storage
-        if (!token || !apiKey || !profileName) {
-          throw new Error("Access token, API key, or profile name not found");
+        const apiKey = localStorage.getItem("apiKey");
+        if (!token || !apiKey) {
+          throw new Error("Access token or API key not found");
         }
 
         const response = await axios.get(
@@ -326,7 +805,7 @@ const ProfilePage = () => {
           {
             headers: {
               Authorization: `Bearer ${token}`,
-              "X-Noroff-API-Key": apiKey, // Add API key to request headers
+              "X-Noroff-API-Key": apiKey,
             },
           }
         );
@@ -358,10 +837,13 @@ const ProfilePage = () => {
     }
 
     try {
+      if (!profileName) {
+        throw new Error("Profile name not provided");
+      }
       const token = localStorage.getItem("accessToken");
-      const apiKey = localStorage.getItem("apiKey"); // Get API key from local storage
-      if (!token || !apiKey || !profileName) {
-        throw new Error("Access token, API key, or profile name not found");
+      const apiKey = localStorage.getItem("apiKey");
+      if (!token || !apiKey) {
+        throw new Error("Access token or API key not found");
       }
 
       const response = await axios.put(
@@ -371,7 +853,7 @@ const ProfilePage = () => {
           headers: {
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,
-            "X-Noroff-API-Key": apiKey, // Add API key to request headers
+            "X-Noroff-API-Key": apiKey,
           },
         }
       );

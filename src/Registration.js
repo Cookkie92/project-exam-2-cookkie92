@@ -86,7 +86,7 @@
 // };
 
 // export default Registration;
-
+//Registration.js
 import React, { useState } from "react";
 import axios from "axios";
 import { createApiKey } from "./auth"; // Import the createApiKey function

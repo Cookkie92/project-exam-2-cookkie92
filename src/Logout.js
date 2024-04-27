@@ -1,3 +1,4 @@
+//Logout.js
 import React from "react";
 
 const Logout = ({ setIsLoggedIn }) => {
