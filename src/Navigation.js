@@ -1,4 +1,3 @@
-// Navigation.js
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -17,7 +16,7 @@ const Navigation = ({ isLoggedIn }) => {
         </li>
         {isLoggedIn && ( // Render "Profile" link only if user is logged in
           <li>
-            <Link to="/profile">Profile</Link>
+            <Link to={`/profile/${localStorage.getItem("name")}`}>Profile</Link>
           </li>
         )}
         <li>

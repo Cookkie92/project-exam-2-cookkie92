@@ -1,9 +1,17 @@
-// Logout.js
 import React from "react";
 
-const Logout = () => {
+const Logout = ({ setIsLoggedIn }) => {
   const handleLogout = () => {
-    // Implement logout logic here
+    // Clear local storage
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("apiKey");
+
+    // Set isLoggedIn state to false
+    setIsLoggedIn(false);
+
+    // Redirect to the home page or login page
+    // You can customize this based on your application's routing logic
+    window.location.href = "/"; // Redirect to the home page
   };
 
   return (
