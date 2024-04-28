@@ -117,12 +117,12 @@ import Logout from "./Logout";
 import Home from "./Home";
 import ProfilePage from "./ProfilePage";
 import Navigation from "./Navigation";
-import "./buttonStyles.css";
 import Posts from "./posts";
 import Profiles from "./profiles";
-import SingleProfile from "./SingleProfile"; // Import SingleProfile component
+import SingleProfile from "./SingleProfile";
 import SinglePost from "./SinglePost";
-import CreatePosts from "./CreatePosts"; // Import CreatePosts component
+import CreatePosts from "./CreatePosts";
+import EditPost from "./EditPost"; // Import EditPost component
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -151,11 +151,11 @@ const App = () => {
           />
           <Route path="/posts" element={<Posts />} />
           <Route path="/profiles" element={<Profiles />} />
-          <Route path="/profiles/:name" element={<SingleProfile />} />{" "}
-          {/* Render SingleProfile component */}
+          <Route path="/profiles/:name" component={SingleProfile} />
           <Route path="/posts/:postId" element={<SinglePost />} />
-          <Route path="/CreatePosts" element={<CreatePosts />} />{" "}
-          {/* Define CreatePosts route */}
+          <Route path="/CreatePosts" element={<CreatePosts />} />
+          <Route path="/posts/:postId/edit" element={<EditPost />} />{" "}
+          {/* Add this route */}
         </Routes>
       </div>
     </Router>
