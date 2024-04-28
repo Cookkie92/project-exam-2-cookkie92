@@ -1,86 +1,10 @@
-// import React, { useState } from "react";
-// import axios from "axios";
-
-// const CreatePost = () => {
-//   const [formData, setFormData] = useState({
-//     title: "",
-//     body: "",
-//     tags: "",
-//     mediaUrl: "",
-//   });
-
-//   const handleChange = (e) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const accessToken = localStorage.getItem("accessToken");
-//       const apiKey = localStorage.getItem("apiKey");
-//       const response = await axios.post(
-//         "https://v2.api.noroff.dev/social/posts",
-//         formData,
-//         {
-//           headers: {
-//             Authorization: `Bearer ${accessToken}`,
-//             "X-Noroff-API-Key": apiKey,
-//           },
-//         }
-//       );
-//       console.log("Post created:", response.data);
-//       // Redirect to the newly created post or update the state to display the new post
-//     } catch (error) {
-//       console.error("Error creating post:", error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h2>Create Post</h2>
-//       <form onSubmit={handleSubmit}>
-//         <label>Title:</label>
-//         <input
-//           type="text"
-//           name="title"
-//           value={formData.title}
-//           onChange={handleChange}
-//         />
-//         <label>Body:</label>
-//         <textarea
-//           name="body"
-//           value={formData.body}
-//           onChange={handleChange}
-//         ></textarea>
-//         <label>Tags:</label>
-//         <input
-//           type="text"
-//           name="tags"
-//           value={formData.tags}
-//           onChange={handleChange}
-//         />
-//         <label>Media URL:</label>
-//         <input
-//           type="text"
-//           name="mediaUrl"
-//           value={formData.mediaUrl}
-//           onChange={handleChange}
-//         />
-//         <button type="submit">Create Post</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default CreatePost;
-
 // CreatePosts.js
 import React, { useState } from "react";
 import axios from "axios";
 
 const CreatePosts = () => {
   const [title, setTitle] = useState("");
-  const [body, setBody] = useState(""); // Add state for the body
+  const [body, setBody] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -94,7 +18,7 @@ const CreatePosts = () => {
         "https://v2.api.noroff.dev/social/posts",
         {
           title: title.trim(),
-          body: body.trim(), // Include the body in the request
+          body: body.trim(),
         },
         {
           headers: {

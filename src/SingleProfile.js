@@ -15,7 +15,7 @@ const SingleProfile = () => {
         const accessToken = localStorage.getItem("accessToken");
         const apiKey = localStorage.getItem("apiKey");
         const response = await axios.get(
-          `https://v2.api.noroff.dev/social/profiles/${name}`, // Use the profile name in the URL
+          `https://v2.api.noroff.dev/social/profiles/${name}`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,

@@ -11,7 +11,7 @@ const Logout = ({ setIsLoggedIn }) => {
     setIsLoggedIn(false);
 
     // Redirect to the home page or login page
-    // You can customize this based on your application's routing logic
+
     window.location.href = "/"; // Redirect to the home page
   };
 
