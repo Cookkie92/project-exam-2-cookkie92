@@ -120,6 +120,7 @@ import Navigation from "./Navigation";
 import "./buttonStyles.css";
 import Posts from "./posts";
 import Profiles from "./profiles";
+import SingleProfile from "./SingleProfile"; // Import SingleProfile component
 import SinglePost from "./SinglePost";
 import CreatePosts from "./CreatePosts"; // Import CreatePosts component
 
@@ -150,6 +151,8 @@ const App = () => {
           />
           <Route path="/posts" element={<Posts />} />
           <Route path="/profiles" element={<Profiles />} />
+          <Route path="/profiles/:name" element={<SingleProfile />} />{" "}
+          {/* Render SingleProfile component */}
           <Route path="/posts/:postId" element={<SinglePost />} />
           <Route path="/CreatePosts" element={<CreatePosts />} />{" "}
           {/* Define CreatePosts route */}
