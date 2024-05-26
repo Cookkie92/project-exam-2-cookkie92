@@ -39,7 +39,7 @@ npm run start
 We welcome contributions! Please make sure to open a pull request so code can be reviewed.
 
 ## Contact
-Feel free to contact us: https://www.linkedin.com/in/kristian-koloey-659b61a5/
+Feel free to contact me: https://www.linkedin.com/in/kristian-koloey-659b61a5/
 
 ## Acknowledgments
 We'd like to acknowledge the following:
