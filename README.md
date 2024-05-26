@@ -1,30 +1,38 @@
-# Project Title
+Project-exam-2
 
-## Description
-A brief description of your project.
+An asignment website, where im using noroff api to create an social media app.
 
-## Installation
-Instructions on how to install and run the project.
+Description
+-Register user
+-login
+-post texts and images
+-read others posts
 
-## Usage
-Instructions on how to use the project.
+Built With
+You can list the tech stack that you've used over here:
 
-## Features
-List of features included in the project.
+React.js
+Bootstrap
 
-## Technologies Used
-- Technology 1
-- Technology 2
-- Technology 3
+Getting Started
+Installing
+To get started with the project, clone the repo and install the dependencies:
 
-## Screenshots
-![Screenshot of the project](link_to_screenshot_image)
+git clone git@github.com:Cookkie92/project-exam-2-cookkie92.git
+cd your-project
+npm install
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Running
 
-## Acknowledgments
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+To run the app, use the following command:
+npm run start
 
+Contributing
+We welcome contributions! Please make sure to open a pull request so code can be reviewed.
+
+Contact
+Feel free to contact us:
+
+Acknowledgments
+We'd like to acknowledge the following:
+Noroff
