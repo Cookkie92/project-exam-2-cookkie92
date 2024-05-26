@@ -1,23 +1,31 @@
-Project-exam-2
+# Project-exam-2
 
-An asignment website, where im using noroff api to create an social media app.
+![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
 
-Description
--Register user
--login
--post texts and images
--read others posts
+An assignment website, where I'm using Noroff API to create a social media app.
 
-Built With
-You can list the tech stack that you've used over here:
+## Description
 
-React.js
-Bootstrap
+An assignment website where users can:
+- Register user
+- Login
+- Post texts and images
+- Read others' posts
 
-Getting Started
-Installing
+## Built With
+
+- [React.js](https://reactjs.org/)
+- [Bootstrap](https://getbootstrap.com)
+
+## Getting Started
+
+### Installing
+
 To get started with the project, clone the repo and install the dependencies:
 
+1. Clone the repo:
+
+```bash
 git clone git@github.com:Cookkie92/project-exam-2-cookkie92.git
 cd your-project
 npm install
