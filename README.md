@@ -15,7 +15,10 @@ An assignment website where users can:
 ## Built With
 
 - [React.js](https://reactjs.org/)
-- [Bootstrap](https://getbootstrap.com)
+- "axios": ^1.6.8
+- "react-router-dom": ^6.23.0
+- "react-dom": ^18.3.1
+- Node.js
 
 ## Getting Started
 
