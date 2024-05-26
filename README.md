@@ -34,13 +34,13 @@ Running
 
 To run the app, use the following command:
 npm run start
-
-Contributing
+```
+##Contributing
 We welcome contributions! Please make sure to open a pull request so code can be reviewed.
 
-Contact
+##Contact
 Feel free to contact us:
 
-Acknowledgments
+##Acknowledgments
 We'd like to acknowledge the following:
 Noroff
