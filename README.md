@@ -22,17 +22,20 @@ An assignment website where users can:
 ### Installing
 
 To get started with the project, clone the repo and install the dependencies:
-```bash
+
 1. Clone the repo:
 
-
+```bash
 git clone git@github.com:Cookkie92/project-exam-2-cookkie92.git
+```
 cd your-project
+```bash
 npm install
-
+```
 Running
 
 To run the app, use the following command:
+```bash
 npm run start
 ```
 ## Contributing
