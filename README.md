@@ -22,10 +22,10 @@ An assignment website where users can:
 ### Installing
 
 To get started with the project, clone the repo and install the dependencies:
-
+```bash
 1. Clone the repo:
 
-```bash
+
 git clone git@github.com:Cookkie92/project-exam-2-cookkie92.git
 cd your-project
 npm install
@@ -35,12 +35,12 @@ Running
 To run the app, use the following command:
 npm run start
 ```
-##Contributing
+## Contributing
 We welcome contributions! Please make sure to open a pull request so code can be reviewed.
 
-##Contact
+## Contact
 Feel free to contact us:
 
-##Acknowledgments
+## Acknowledgments
 We'd like to acknowledge the following:
 Noroff
